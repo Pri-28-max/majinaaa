@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swasthapal - Har Mahine Ki Saheli</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: lightpink;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #f1c6d3;
+    }
+    .hidden {
+      display: none;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="page1" class="container">
+    <h1>Swasthapal</h1>
+    <h2>Har Mahine Ki Saheli</h2>
+    <button onclick="nextPage(2)">Next</button>
+  </div>
+
+  <div id="page2" class="container hidden">
+    <h2>Select Language</h2>
+    <button onclick="selectLanguage('English')">English</button>
+    <button onclick="selectLanguage('Hindi')">हिंदी</button>
+    <button onclick="selectLanguage('Marathi')">मराठी</button>
+  </div>
+
+  <div id="page3" class="container hidden">
+    <h2>Register</h2>
+    <input type="text" id="username" placeholder="Enter your Name"><br><br>
+    <input type="email" id="email" placeholder="Enter your Gmail ID"><br><br>
+    <button onclick="nextPage(4)">Next</button>
+  </div>
+
+  <div id="page4" class="container hidden">
+    <h2>Select Problems</h2>
+    <label><input type="checkbox"> PCOD</label><br>
+    <label><input type="checkbox"> Cramps</label><br>
+    <label><input type="checkbox"> Mood Swings</label><br>
+    <label><input type="checkbox"> Headache</label><br>
+    <label><input type="checkbox"> Fatigue</label><br>
+    <label><input type="checkbox"> Bloating</label><br>
+    <label><input type="checkbox"> Acne</label><br>
+    <label><input type="checkbox"> Irregular Periods</label><br><br>
+    <button onclick="nextPage(5)">Next</button>
+  </div>
+
+  <div id="page5" class="container hidden">
+    <h2>Duration</h2>
+    <select>
+      <option>Days</option>
+      <option>Weeks</option>
+      <option>Months</option>
+    </select><br><br>
+    <button onclick="nextPage(6)">Next</button>
+  </div>
+
+  <div id="page6" class="container hidden">
+    <h2>Summary & Advice</h2>
+    <p>This is your selected problem and advice:</p>
+    <ul>
+      <li>Drink warm water</li>
+      <li>Avoid junk food</li>
+      <li>Do light exercise</li>
+      <li>Maintain sleep schedule</li>
+    </ul>
+    <br>
+    <button onclick="nextPage(7)">Next</button>
+  </div>
+
+  <div id="page7" class="container hidden">
+    <h2>Thank You for Visiting!</h2>
+    <p>Stay healthy and strong with Swasthapal.</p>
+  </div>
+
+  <script>
+    function nextPage(pageNumber) {
+      for (let i = 1; i <= 7; i++) {
+        document.getElementById('page' + i).classList.add('hidden');
+      }
+      document.getElementById('page' + pageNumber).classList.remove('hidden');
+    }
+
+    function selectLanguage(language) {
+      alert("You selected " + language);
+      nextPage(3);
+    }
+  </script>
+</body>
+</html>
